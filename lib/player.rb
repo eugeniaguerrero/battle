@@ -14,10 +14,6 @@ class Player
     self.score -= ATTACK_SCORE
   end
 
-  def attack(opponent)
-    opponent.reduce_score
-  end
-
   attr_writer :score
 
 end

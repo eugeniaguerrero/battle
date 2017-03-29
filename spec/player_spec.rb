@@ -13,11 +13,6 @@ subject(:alfred) {described_class.new('Alfred')}
     expect(pesto.score).to eq described_class::INITIAL_SCORE
   end
 
-  it 'damages the player' do
-    expect(pesto).to receive(:reduce_score)
-    alfred.attack(pesto)
-  end
-
   it 'reduces a score' do
     expect {pesto.reduce_score}.to change{pesto.score}.by(-described_class::ATTACK_SCORE)
   end

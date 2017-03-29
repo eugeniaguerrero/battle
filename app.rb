@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require_relative './lib/player'
+require_relative './lib/game'
 
 class Battle < Sinatra::Base
 enable :sessions
@@ -22,7 +23,7 @@ enable :sessions
   end
 
   get '/attack' do
-    $player_1.attack($player_2)
+    Game.new.attack($player_2)
     @player_2_score = $player_2.score
     @player_1_name = $player_1.name
     @player_2_name = $player_2.name
