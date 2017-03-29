@@ -11,3 +11,11 @@ feature "Viewing hit points" do
     expect(page).to have_content("Pesto: 80HP")
   end
 end
+
+feature "Attacking" do
+  scenario "attack player 2" do
+    sign_in_and_play
+    click_button "Attack!"
+    expect(page).to have_content("Attacked Pesto!")
+  end
+end
