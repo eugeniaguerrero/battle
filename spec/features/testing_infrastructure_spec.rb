@@ -6,6 +6,10 @@ feature 'Testing player names' do
 end
 
 feature "Viewing hit points" do
+  scenario "viewing Player 1's hit points" do
+    sign_in_and_play
+    expect(page).to have_content("Alfred: 100HP")
+  end
   scenario "viewing Player 2's hit points" do
     sign_in_and_play
     expect(page).to have_content("Pesto: 100HP")
