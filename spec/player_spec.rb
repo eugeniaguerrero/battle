@@ -5,7 +5,7 @@ describe Player do
 subject(:pesto) {described_class.new('Pesto')}
 subject(:alfred) {described_class.new('Alfred')}
 
-  it 'returns a player name' do
+  it 'returns player name' do
     expect(pesto.name).to eq 'Pesto'
   end
 

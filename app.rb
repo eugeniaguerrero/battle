@@ -16,17 +16,12 @@ enable :sessions
   end
 
   get '/play' do
-    @player_1_name = $player_1.name
-    @player_2_name = $player_2.name
-    @player_2_score = $player_2.score
+    $game = Game.new($player_1, $player_2)
     erb :play
   end
 
   get '/attack' do
-    Game.new.attack($player_2)
-    @player_2_score = $player_2.score
-    @player_1_name = $player_1.name
-    @player_2_name = $player_2.name
+    $game.attack($game.player_2)
     erb :attack
   end
 

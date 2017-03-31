@@ -2,27 +2,39 @@ require 'game'
 
 describe Game do
 
-  subject(:game) {described_class.new('Alfred', 'Pesto')}
+  subject(:game) {described_class.new(alfred, pesto)}
   let(:alfred) {double :player }
   let(:pesto) {double :player }
 
-  describe '#player_1_name' do
-    it 'tells us the name of player_1' do
-      expect(pesto.name).to eq 'Pesto'
+  describe "#initialize" do
+    it 'initiates a new game with player 1' do
+      expect(game.player_1).to eq alfred
+    end
+    it 'initiates a new game with player 2' do
+      expect(game.player_2).to eq pesto
+    end
+    it 'initiates a current player (player 1)' do
+      expect(game.current_player).to eq(alfred)
     end
   end
 
-  describe '#player_1_score' do
-    it 'tells us the score or player_1' do
-    expect(pesto.score).to eq 100
+  describe '#switch_turns' do
+    it 'switches the players' do
+      game.switch_turns
+      expect(game.current_player).to eq(pesto)
     end
   end
 
+  describe '#opponent_of' do
+    it 'returns the opponent of the player' do
+      expect(game.opponent_of(alfred)).to eq(pesto)
+    end
+  end
 
   describe '#attack' do
     it 'damages the player' do
-      expect(player_1).to receive(:reduce_score)
-      game.player_1_attacks
+      expect(alfred).to receive(:reduce_score)
+      game.attack(alfred)
     end
   end
 
