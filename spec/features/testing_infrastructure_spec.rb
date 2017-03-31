@@ -28,6 +28,16 @@ feature "Reduce opponent's HP" do
   scenario "reducing player 2's HP" do
     sign_in_and_play
     click_button "Attack!"
-    expect("Pesto: 90HP")
+    expect(page).to have_content("Pesto: 90HP")
+  end
+end
+
+feature "Losing" do
+  scenario "player 2 loses" do
+    sign_in_and_play
+    18.times {click_button "Attack!"
+    click_button "Back"}
+    click_button "Attack!"
+    expect(page).to have_content("Pesto has lost :(")
   end
 end

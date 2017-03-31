@@ -27,7 +27,12 @@ enable :sessions
 
   get '/attack' do
     $game.attack($game.opponent_of($game.current_player))
+    redirect '/lost' if ($game.opponent_of($game.current_player)).score == 0
     erb :attack
+  end
+
+  get '/lost' do
+    erb :lost
   end
 
   run! if app_file == $0
