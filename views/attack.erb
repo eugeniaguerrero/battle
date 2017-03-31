@@ -1,9 +1,9 @@
-<%if $game.current_player == $game.player_1%>
-<h1>Attacked <%=$game.player_2.name%>!</h1>
-<h2><%=$game.player_2.name%>: <%=$game.player_2.score%>HP</h2>
+<%if Battle.game.current_player == Battle.game.player_1%>
+<h1>Attacked <%=Battle.game.player_2.name%>!</h1>
+<h2><%=Battle.game.player_2.name%>: <%=Battle.game.player_2.score%>HP</h2>
 <%else%>
-<h1>Attacked <%=$game.player_1.name%>!</h1>
-<h2><%=$game.player_1.name%>: <%=$game.player_1.score%>HP</h2>
+<h1>Attacked <%=Battle.game.player_1.name%>!</h1>
+<h2><%=Battle.game.player_1.name%>: <%=Battle.game.player_1.score%>HP</h2>
 <%end%>
 
 <form action='/switch-turns'>

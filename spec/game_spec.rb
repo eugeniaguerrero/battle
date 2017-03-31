@@ -18,16 +18,16 @@ describe Game do
     end
   end
 
+  describe '#opponent' do
+    it 'returns opponent of alfred' do
+      expect(game.opponent).to eq(pesto)
+    end
+  end
+
   describe '#switch_turns' do
     it 'switches the players' do
       game.switch_turns
       expect(game.current_player).to eq(pesto)
-    end
-  end
-
-  describe '#opponent_of' do
-    it 'returns the opponent of the player' do
-      expect(game.opponent_of(alfred)).to eq(pesto)
     end
   end
 
